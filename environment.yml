@@ -1,0 +1,33 @@
+name: nest-mpi
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - cmake>=3.19
+  - openmpi
+  - boost>=1.69
+  - gsl>=1.11
+  - libtool
+  - readline
+  - hdf5
+  - cppcheck
+  - doxygen
+  - graphviz
+  - mpi4py
+  - cython
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - h5py
+  - black
+  - pre-commit
+  - isort
+  - notebook
+  - jupyterlab
+  - csa
+  - pydot
+  - gcc
+  - gxx

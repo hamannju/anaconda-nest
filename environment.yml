@@ -39,3 +39,4 @@ dependencies:
   - pytest
   - pytest-timeout
   - pytest-xdist
+  - setuptools <= 65

@@ -9,8 +9,9 @@ dependencies:
   - openmpi
   - boost>=1.69
   - gsl>=1.11
-  - libtool
-  - readline
+  - libtool 
+  - readline  
+  - ncurses 
   - hdf5
   - cppcheck
   - doxygen
@@ -31,3 +32,10 @@ dependencies:
   - pydot
   - gcc
   - gxx
+  - nose
+  - junitparser
+  - ipython
+  - future
+  - pytest
+  - pytest-timeout
+  - pytest-xdist

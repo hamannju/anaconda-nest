@@ -4,11 +4,18 @@
 ENV_NAME="nest-mpi"
 
 # Remove existing nest-simulator directory if it exists
-rm -rf nest-simulator
+rm -rf nest-simulator-2.20.2
 
-# Clone specific branch of NEST Simulator repository
-git clone --branch v2.20.2 --single-branch https://github.com/nest/nest-simulator.git
-cd nest-simulator
+# Download NEST Simulator release 2.20.2
+wget https://github.com/nest/nest-simulator/archive/refs/tags/v2.20.2.tar.gz
+tar -xzf v2.20.2.tar.gz
+cd nest-simulator-2.20.2
+
+# Remove the downloaded tarball
+rm ../v2.20.2.tar.gz
+
+# Fix the version string in NestVersionInfo.cmake
+sed -i 's/set(NEST_VERSION_BRANCH "nest-2.20.2")/set(NEST_VERSION_BRANCH "2.20.2")\n    set(NEST_VERSION "${NEST_VERSION_BRANCH}")/' cmake/NestVersionInfo.cmake
 
 # Remove existing build directory if it exists
 rm -rf build

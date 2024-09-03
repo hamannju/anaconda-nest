@@ -347,4 +347,4 @@ if __name__ == '__main__':
     example.connect_external_input()
     # Start simulation
     example.simulate()
-    example.plot_data()
+    #example.plot_data()

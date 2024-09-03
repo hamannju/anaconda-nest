@@ -4,12 +4,7 @@
 ENV_NAME="nest-mpi"
 
 # Remove the existing environment if it exists
-conda env remove --name $ENV_NAME --yes
+conda remove -n $ENV_NAME --all   --yes
 
 # Create conda environment
 conda env create -f environment.yml
-
-# Activate conda environment
-#conda activate $ENV_NAME
-
-echo "Environment $ENV_NAME has been recreated and activated."

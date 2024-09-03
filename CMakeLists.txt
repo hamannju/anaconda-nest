@@ -75,13 +75,16 @@ if ( HAVE_PYTHON )
 
   install( TARGETS pynestkernel DESTINATION ${PYEXECDIR}/nest/ )
 
-  # Install Python files and pynest-init.sli
-  install( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/nest
-           DESTINATION ${PYEXECDIR}
-           FILES_MATCHING PATTERN "*.py" PATTERN "*.sli"
+  # Install all Python files, subfolders, pynest-init.sli, and .dat files
+  install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/nest
+          DESTINATION ${PYEXECDIR}
+          FILES_MATCHING
+          PATTERN "*.py"
+          PATTERN "*.sli"
+          PATTERN "*.dat"
   )
-  install( FILES ${CMAKE_CURRENT_SOURCE_DIR}/setup.py
-           DESTINATION ${PYEXECDIR}/nest/
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/setup.py
+          DESTINATION ${PYEXECDIR}/nest/
   )
 
   install( FILES ${PROJECT_BINARY_DIR}/pynest/do_tests.py

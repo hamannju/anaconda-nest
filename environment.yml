@@ -3,10 +3,10 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.9
+  - python=3.10
   - pip
   - cmake>=3.19
-  - openmpi
+  - openmpi=4.1.6
   - boost>=1.69
   - gsl>=1.11
   - libtool 
@@ -18,8 +18,8 @@ dependencies:
   - graphviz
   - mpi4py
   - cython
-  - numpy
-  - pandas
+  - numpy<=1.26.4
+  - pandas=2.2.2
   - scipy
   - matplotlib
   - h5py
@@ -40,3 +40,4 @@ dependencies:
   - pytest-timeout
   - pytest-xdist
   - setuptools <= 65
+  - librdmacm 

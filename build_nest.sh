@@ -35,10 +35,15 @@ conda run --live-stream -n $ENV_NAME bash -c '
     # Compile and install NEST
     make
     make install
+
+    # Run nest -h to generate ~/.nestrc for MPI operations
+    nest -h
+
+    # Run test suite
     make installcheck
 
-    #source $CONDA_PREFIX/bin/nest_vars.sh
-    #echo "NEST environment variables set."
+    # source $CONDA_PREFIX/bin/nest_vars.sh
+    # echo "NEST environment variables set."
 
     echo "NEST Simulator has been built and installed in the $ENV_NAME environment."
 '

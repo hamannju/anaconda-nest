@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf nest-simulator-2.20.2
 
 # Download NEST Simulator release 2.20.2
 wget https://github.com/nest/nest-simulator/archive/refs/tags/v2.20.2.tar.gz

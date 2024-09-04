@@ -12,6 +12,9 @@ fi
 # Overwrite the CMakeLists.txt file in the pynest directory to copy .py and .sli files directly to site-packages/nest
 cp CMakeLists.txt nest-simulator-2.20.2/pynest/CMakeLists.txt
 
+# Overwrite the CMakeLists.txt in the topology directory to install files to site-packages/nest/topology
+cp CMakeListsTopology.txt nest-simulator-2.20.2/topology/CMakeLists.txt
+
 # Overwrite the NestVersionInfo.cmake file in the cmake directory to set NEST_VERSION_BRANCH to 2.20.2 instead of noncompliant nest-2.20.2
 cp NestVersionInfo.cmake nest-simulator-2.20.2/cmake/NestVersionInfo.cmake
 
@@ -28,6 +31,7 @@ conda run --live-stream -n $ENV_NAME bash -c '
           -DCMAKE_C_COMPILER=$(which gcc) \
           -Dwith-mpi=ON \
           -Dwith-python=3 \
+          -Dwith-boost=ON \
           -Wno-dev \
           -Wunused-variable \
           -Dwith-optimize="-O3 -march=native" \

@@ -18,9 +18,9 @@ dependencies:
   - graphviz
   - mpi4py
   - cython
-  - numpy<=1.26.4
-  - pandas=2.2.2
-  - scipy
+  - numpy<1.25.0
+  - pandas<=2.2.2
+  - scipy<1.9.0
   - matplotlib
   - h5py
   - black
@@ -40,3 +40,5 @@ dependencies:
   - pytest-timeout
   - pytest-xdist
   - setuptools <= 65
+  - boost
+  - boost-cpp

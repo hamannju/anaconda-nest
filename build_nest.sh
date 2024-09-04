@@ -30,6 +30,7 @@ conda run --live-stream -n $ENV_NAME bash -c '
           -Dwith-python=3 \
           -Wno-dev \
           -Wunused-variable \
+          -Dwith-optimize="-O3 -march=native" \
           -DCMAKE_CXX_COMPILER=$(which g++) .
 
     # Compile and install NEST

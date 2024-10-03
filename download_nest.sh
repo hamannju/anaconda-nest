@@ -1,9 +1,11 @@
 #!/bin/bash
-rm -rf nest-simulator-2.20.2
+NEST_VERSION=3.8
+
+rm -rf nest-simulator-$NEST_VERSION
 
 # Download NEST Simulator release 2.20.2
-wget https://github.com/nest/nest-simulator/archive/refs/tags/v2.20.2.tar.gz
-tar -xzf v2.20.2.tar.gz
+wget https://github.com/nest/nest-simulator/archive/refs/tags/v$NEST_VERSION.tar.gz
+tar -xzf v$NEST_VERSION.tar.gz
 
 # Remove the downloaded tarball
-rm v2.20.2.tar.gz
+rm v$NEST_VERSION.tar.gz

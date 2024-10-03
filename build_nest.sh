@@ -1,25 +1,16 @@
 #!/bin/bash
 
 # Set environment name
-ENV_NAME="nest-mpi"
+ENV_NAME="nest3-mpi"
 
 # Check if the download was successful
-if [ ! -d "nest-simulator-2.20.2" ]; then
+if [ ! -d "nest-simulator-3.8" ]; then
     echo "Error: NEST Simulator not found. Exiting."
     exit 1
 fi
 
-# Overwrite the CMakeLists.txt file in the pynest directory to copy .py and .sli files directly to site-packages/nest
-cp CMakeLists.txt nest-simulator-2.20.2/pynest/CMakeLists.txt
-
-# Overwrite the CMakeLists.txt in the topology directory to install files to site-packages/nest/topology
-cp CMakeListsTopology.txt nest-simulator-2.20.2/topology/CMakeLists.txt
-
-# Overwrite the NestVersionInfo.cmake file in the cmake directory to set NEST_VERSION_BRANCH to 2.20.2 instead of noncompliant nest-2.20.2
-cp NestVersionInfo.cmake nest-simulator-2.20.2/cmake/NestVersionInfo.cmake
-
 # Switch to the nest-simulator-2.20.2 directory
-cd nest-simulator-2.20.2
+cd nest-simulator-3.8
 
 # Use conda run to execute commands in the specified environment
 conda run --live-stream -n $ENV_NAME bash -c '
@@ -30,11 +21,14 @@ conda run --live-stream -n $ENV_NAME bash -c '
     cmake -DCMAKE_INSTALL_PREFIX:PATH=$CONDA_PREFIX \
           -DCMAKE_C_COMPILER=$(which gcc) \
           -Dwith-mpi=ON \
-          -Dwith-python=3 \
+          -Dwith-python=ON \
+          -Dcythonize-pynest=ON \
           -Dwith-boost=ON \
           -Wno-dev \
           -Wunused-variable \
+          -Wsign-compare \
           -Dwith-optimize="-O3 -march=native" \
+          -Dwith-defines=-DNDEBUG \
           -DCMAKE_CXX_COMPILER=$(which g++) .
 
     # Compile and install NEST

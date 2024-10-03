@@ -1,0 +1,24 @@
+name: nest3-mpi
+channels:
+  - conda-forge
+
+dependencies:
+
+  - python >= 3.10
+  - pip
+  - cmake >= 3.19
+  - openmpi
+  - boost >= 1.69
+  - gsl >= 1.11
+  - libtool
+  - readline
+  - hdf5
+  - cppcheck
+  - doxygen
+  - graphviz
+  - mpi4py
+  - pip:
+    # To build and work with PyNEST
+    - -r requirements_pynest.txt
+    # To run NEST testsuite
+    - -r requirements_testing.txt
